@@ -1,6 +1,6 @@
 <?php
 
-class Cd {
+class CD {
 	private $title;
 	private $artist;
 	private $image;
@@ -11,6 +11,7 @@ class Cd {
 		$this->artist = $artist;
 		$this->image = $image;
 		$this->price = $price;
+	}
 
 	function getTitle(){
 		return $this->title;
@@ -42,41 +43,17 @@ class Cd {
 	function setPrice($new_price){
 		$this->price = $new_price;
 	}
+
+	function save(){
+		array_push($_SESSION['cd_list'], $this);
+	}
+
+	static function getAll(){
+		return $_SESSION['cd_list'];
+	}
+
+	static function deleteAll(){
+		return $_SESSION['cd_list']= array();
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+?>

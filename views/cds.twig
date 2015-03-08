@@ -1,0 +1,36 @@
+<!DOCTYPE <html>
+<head>
+	<title>CD Library</title>
+</head>
+<body>
+	<h1>CD Library</h1>
+
+	{% if cds is not empty %}
+	<p>Here are your cds:</p>
+	<ul>
+		{% for cd in cds %}
+		<li>{{cd.getTitle}}</li>
+		<li>{{cd.getArtist}}</li>
+		<li>{{cd.getImage}}</li>
+		<li>{{cd.getPrice}}</li>
+		{% endfor %}
+	</ul>	
+	{% endif %}
+
+	<form action='/cds' method='post'> 
+		<label for='title'>CD title</label>
+		<input id='title' name='title' type='text'>
+		<label for='artist'>CD artist</label>
+		<input id='artist' name='artist' type='text'>
+		<label for='image'>CD image</label>
+		<input id='image' name='image' type='text'>
+		<label for='price'>CD price</label>
+		<input id='price' name='price' type='text'>
+		<button type='submit'>Add CD</button>
+	</form>
+
+	<form action='/delete' method='post'>
+		<button type='submit'>Delete your cd library</button>
+	</form>	
+</body>
+</html>
